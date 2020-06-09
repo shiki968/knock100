@@ -1,19 +1,19 @@
 # coding: utf-8
 # Alt+R
-# Python3ç³»ã§ã‚ã‚Œã°ã€ãƒ•ã‚¡ã‚¤ãƒ«â†’èµ·å‹•ã‚¹ã‚¯ãƒªãƒ—ãƒˆã§init.coffeeãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+# Python3Œn‚Å‚ ‚ê‚ÎAƒtƒ@ƒCƒ‹¨‹N“®ƒXƒNƒŠƒvƒg‚Åinit.coffeeƒtƒ@ƒCƒ‹‚ğŠJ‚«
 # process.env.PYTHONIOENCODING = "utf-8";
 
 #00
-str0 = 'stressed'  # ""ã¯ãƒ€ãƒ¡
-print(str0[::-1])  # list[start:end:step] stepãŒãƒã‚¤ãƒŠã‚¹ãªã‚‰é€†é †
+str0 = 'stressed'  # ""‚Íƒ_ƒ
+print(str0[::-1])  # list[start:end:step] step‚ªƒ}ƒCƒiƒX‚È‚ç‹t‡
 
 #01
-str1 = 'ãƒ‘ã‚¿ãƒˆã‚¯ã‚«ã‚·ãƒ¼'
+str1 = 'ƒpƒ^ƒgƒNƒJƒV['
 print(str1[::2])
 
 #02
-str2_1 = 'ãƒ‘ãƒˆã‚«ãƒ¼'
-str2_2 = 'ã‚¿ã‚¯ã‚·ãƒ¼'
+str2_1 = 'ƒpƒgƒJ['
+str2_2 = 'ƒ^ƒNƒV['
 for a,b in zip(str2_1,str2_2):
     print(a+b, end='')
 print()
@@ -21,8 +21,8 @@ print()
 #03
 import re
 str3 = 'Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.'
-str3 = re.sub('[,\.]', '', str3)  # ,ã¨.ã‚’é™¤å»
-str3_list = str3.split()  # ã‚¹ãƒšãƒ¼ã‚¹ã§åŒºåˆ‡ã£ã¦å˜èªã”ã¨ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆ
+str3 = re.sub('[,\.]', '', str3)  # ,‚Æ.‚ğœ‹
+str3_list = str3.split()  # ƒXƒy[ƒX‚Å‹æØ‚Á‚Ä’PŒê‚²‚Æ‚ÌƒŠƒXƒg‚ğì¬
 for i in str3_list:
     print(len(i),end='')
 print()
@@ -30,7 +30,7 @@ print()
 #04
 str4 = 'Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.'
 split4 = str4.split()
-one_ch4 = [1, 5, 6, 7, 8, 9, 15, 16, 19]  # 1æ–‡å­—ã‚’å–ã‚Šå‡ºã™å˜èªã®ç•ªå·ãƒªã‚¹ãƒˆ
+one_ch4 = [1, 5, 6, 7, 8, 9, 15, 16, 19]  # 1•¶š‚ğæ‚èo‚·’PŒê‚Ì”Ô†ƒŠƒXƒg
 ans4 = {}
 for i,word in enumerate(split4):
     if i+1 in one_ch4:
@@ -40,11 +40,11 @@ for i,word in enumerate(split4):
 print(ans4)
 
 #05
-# n-gram æ–‡å­—åˆ—ã‚’é ­ã‹ã‚‰é †ã«nå€‹ã®æ–‡å­—ã§åˆ†å‰². å˜èªbi-gramï¼Œæ–‡å­—bi-gram
+# n-gram •¶š—ñ‚ğ“ª‚©‚ç‡‚ÉnŒÂ‚Ì•¶š‚Å•ªŠ„. ’PŒêbi-gramC•¶šbi-gram
 str5 = 'I am an NLPer'
 split5 = str5.split()
 def n_gram(target, n):
-  # åŸºæº–ã‚’1æ–‡å­—(å˜èª)ãšã¤ ãšã‚‰ã—ãªãŒã‚‰næ–‡å­—åˆ†æŠœãå‡ºã™
+  # Šî€‚ğ1•¶š(’PŒê)‚¸‚Â ‚¸‚ç‚µ‚È‚ª‚çn•¶š•ª”²‚«o‚·
   return [ target[idx:idx + n] for idx in range(len(target) - n + 1) ]
 
 word_bi_gram = len(split5)-1
@@ -60,27 +60,27 @@ str6_1 = 'paraparaparadise'
 str6_2 = 'paragraph'
 X = set(n_gram(str6_1,2) )
 Y = set(n_gram(str6_2,2) )
-union = X | Y  # é›†åˆã®å¼•æ•°ã¯set(é›†åˆ)ã®ã¿ã€‚{}ã§è¡¨ã™ã€‚
+union = X | Y  # W‡‚Ìˆø”‚Íset(W‡)‚Ì‚İB{}‚Å•\‚·B
 intersection = X & Y
 difference = X - Y
 
 print('X:', X)
 print('Y:', Y)
-print('å’Œé›†åˆ:', union)
-print('ç©é›†åˆ:', intersection)
-print('å·®é›†åˆ:', difference)
-print('Xã«seãŒå«ã¾ã‚Œã‚‹ã‹:', {('se')} <= X)
-print('Yã«seãŒå«ã¾ã‚Œã‚‹ã‹:', {('se')} <= Y)
+print('˜aW‡:', union)
+print('ÏW‡:', intersection)
+print('·W‡:', difference)
+print('X‚Ése‚ªŠÜ‚Ü‚ê‚é‚©:', {('se')} <= X)
+print('Y‚Ése‚ªŠÜ‚Ü‚ê‚é‚©:', {('se')} <= Y)
 
 #07
 def q7(x,y,z):
-    # return str(x)+'æ™‚ã®'+y+'ã¯'+str(z)
-    return f'{x}æ™‚ã®ã¨ã{y}ã¯{z}'  # formatã§æ›¸å¼å¤‰æ›
-    # return '{}æ™‚ã®ã¨ã{}ã¯{}'.format(x,y,z)
-print( q7(12,'æ°—æ¸©',22.4) )
+    # return str(x)+'‚Ì'+y+'‚Í'+str(z)
+    return f'{x}‚Ì‚Æ‚«{y}‚Í{z}'  # format‚Å‘®•ÏŠ·
+    # return '{}‚Ì‚Æ‚«{}‚Í{}'.format(x,y,z)
+print( q7(12,'‹C‰·',22.4) )
 
 #08
-# chr(æ–‡å­—åŒ–)ã€€â‡”  ord(ã‚³ãƒ¼ãƒ‰åŒ–)
+# chr(•¶š‰»)@Ì  ord(ƒR[ƒh‰»)
 def cipher(str):
     ret = [chr(219 - ord(x)) if x.islower() else x for x in str]
     return ''.join(ret)
@@ -96,5 +96,3 @@ def shuffle(words):
         return split9[:1] + random.sample(split9[1:-1], len(split9)-2) + split9[-1:]
 words = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind."
 print( shuffle(words) )
-
-print('complete!!')
